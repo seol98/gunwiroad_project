@@ -1,0 +1,24 @@
+<%- include('common/header.ejs') %>
+<div class="container empty-background">
+    <!-- <nav class="nav">
+        <p class="title">테스트</p>
+        <div class="sub-title">QR 인증</div>
+    </nav> -->
+    <header class="border_bottom">
+        <img src="../file/header_logo_black.png" alt="">
+    </header>
+
+    <div class="content-container">
+        <!-- <div class="qr-container">
+            <p class="wait-text">화면을 인식중입니다.</p>
+        </div> -->
+        <div class="canvas-wrap">
+            <canvas id="canvas" width="300" height="300"></canvas>
+            <img class="qr-box" src="../file/qr_container.png" alt="">
+        </div>
+    </div>
+</div>
+<%- include('common/footer.ejs') %>
+
+<script src="/js/library/jsQR.js"></script>
+<script src="/js/qr.js"></script>

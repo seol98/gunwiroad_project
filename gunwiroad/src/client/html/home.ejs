@@ -1,0 +1,124 @@
+<%- include('common/header.ejs') %>
+<!-- 스플래쉬 화면 -->
+<div class="splash" id="splash">
+    <img  class="splash_bg" src="../file/splash_bg.png" alt="">
+    <img class="splash_logo" src="../file/splash_logo.png" alt="">
+</div>
+<script src="../js/splash.js"></script>
+
+<!-- 군위로드란? & 이용안내 -->
+<div class="home_page">
+    <header>
+        <img src="../file/header_logo_white.png" alt="">
+    </header>
+    <div class="grid_container">
+        <div class="catchphrase">
+            <div class="main_text">
+                군위로드와 함께하는</br>
+                대구 군위 여행
+            </div>
+            <div class="sub_text">
+                QR 사진 찍고 경품 받아가세요!
+            </div>
+        </div>
+
+        <div class="about_app_btn">
+            <img src="../file/about_app_btn_img.png" alt="">
+            <div>
+                군위로드 이용안내
+                <img src="../file/right_arrow.png" alt="">
+            </div>
+        </div>
+
+        <div class="about_app_texts about_gunwiroad">
+                <img class="cancel_btn" src="../file/cancel_btn.png" alt="">
+                <div class="title main_title">
+                    "환상적인 여정, 군위로드"
+                </div>
+                <div class="title sub_title">
+                    군위로드란?
+                </div>
+                <div class="text">
+                    "군위로드"는 군위군의 아름다운 관광지와 역사적 장소를 탐험하며 특별한 
+                    여행 경험을 제공하는 스탬프투어 하이브리드 앱입니다.
+                </div>
+                <div class="title sub_title">
+                    이용안내
+                </div>
+                <div class="text">1. 계정 생성 및 로그인</div>
+                <div class="text">2. 스탬프 투어 선택</div>
+                <div class="text">3. 스탬프 수집</div>
+                <div class="text">4. 앱 내 탐험</div>
+                <div class="text">5. 레벨 업</div>
+                <div class="text">6. 특별한 보상</div>
+
+                <div class="stamp_reward_table">
+                    <div class="title"><span style="color:#FBFF00">인증개수 별</span> 스탬프 리워드</div>
+                    <div class="table_row column_titles">
+                        <div>인증개수</div>
+                        <div>스탬프 리워드</div>
+                    </div>
+                    <div class="table_row">
+                        <div>1</br>
+                            <span class="level">(level 1)</span>
+                        </div>
+                        <div>제휴 업체 할인권</br>
+                            <span class="price">1,000원</span>
+                        </div>
+                    </div>
+                    <div class="table_row">
+                        <div>3</br>
+                            <span class="level">(level 3)</span>
+                        </div>
+                        <div>제휴 업체 할인권</br>
+                            <span class="price">3,000원</span>
+                        </div>
+                    </div>
+                    <div class="table_row">
+                        <div>6</br>
+                            <span class="level">(level 6)</span>
+                        </div>
+                        <div>제휴 업체 할인권</br>
+                            <span class="price">5,000원</span>
+                        </div>
+                    </div>
+                    <div class="table_row">
+                        <div>9</br>
+                            <span class="level">(level 9)</span>
+                        </div>
+                        <div>제휴 업체 할인권</br>
+                            <span class="price">10,000원</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 군위로드란? 버튼 및 이용안내 버튼을 클릭했을 때 해당 텍스트 보여지게 하기 -->
+<script>
+    const about_app_btn = document.querySelector('.about_app_btn')
+    const about_app_btn_img = document.querySelector('.about_app_btn > img')
+    const about_app_texts = document.querySelector('.about_app_texts')
+    const cancel_btn = document.querySelector('.cancel_btn')
+
+    about_app_btn.addEventListener("click", (event) => {
+        about_app_texts.classList.toggle('show');
+        if(about_app_btn_img.src.includes('clicked')) {
+            about_app_btn_img.src = "../file/about_app_btn_img.png"
+        } else {
+            about_app_btn_img.src = "../file/clicked_about_app_btn_img.png"
+        }
+
+    });
+
+    cancel_btn.addEventListener("click", () => {
+        about_app_texts.classList.remove('show');
+        about_app_btn_img.src = "../file/about_app_btn_img.png";
+    })
+
+</script>
+
+<%- include('common/footer.ejs') %>
+ 

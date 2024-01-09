@@ -1,0 +1,76 @@
+<footer class="footer">
+    <ul id="menu">
+        <li>
+            <a href="/" class="menu-link">
+                <img src="../../file/home_icon.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/course" class="menu-link">
+                <img src="../../file/map_icon.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/qr" class="menu-link">
+                <img src="../../file/qr_icon.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="/stamp" class="menu-link">
+                <img src="../../file/stamp_icon.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a class="menu-link myinfo-or-login-link" href="/profile" >
+                <img class="myinfo-or-login-icon" src="../../file/myinfo_icon.png" alt="">
+            </a>
+        </li>
+    </ul>
+</footer>
+
+<!-- 푸터 메뉴 클릭 시 클릭 효과 나타내기 -->
+<script>
+const menuLinks = document.querySelectorAll('.menu-link');
+window.addEventListener('load', () => {
+    const currentPath = window.location.pathname;
+    menuLinks.forEach((menuLink) => {
+        if (menuLink.getAttribute('href') === currentPath) {
+            menuLink.classList.add('active');
+        } else {
+            menuLink.classList.remove('active');
+        }
+    });
+});
+</script>
+
+<!-- 브라우저와 달리 모바일에서는 100vh에 상단 url 입력창과 하단 네비게이션 창을 포함하므로 이를 제외한 스크린 사이즈의 높이를 계산해줘야 함 -->
+<script>
+    function setScreenSize() {
+            let vh = window.innerHeight * 0.01;
+
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    setScreenSize();
+
+    // 스크린 사이즈가 변할 때마다 실행해줘야 함
+    window.addEventListener('resize', () => setScreenSize());
+
+    history.scrollRestoration = "auto";
+//현재 위치를 기억하여 새로고침시 그자리를 유지한다.
+</script>
+
+<script>
+    const accessToken = localStorage.getItem("accessToken");
+    const myinfoOrLoginIcon = document.querySelector('.myinfo-or-login-icon')
+    const myinfoOrLoginLink = document.querySelector('.myinfo-or-login-link')
+    if(accessToken) {
+        myinfoOrLoginIcon.src = "../../file/myinfo_icon.png"
+        myinfoOrLoginLink.href = "/profile"
+    } else {
+        myinfoOrLoginIcon.src = "../../file/login_icon.png"
+        myinfoOrLoginLink.href = "/login"
+    }
+</script>
+</body>
+</html>

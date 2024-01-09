@@ -1,0 +1,28 @@
+<%- include('common/header.ejs') %>
+    <header class="border_bottom brown">
+        <img src="../file/header_logo_black.png" alt="">
+    </header>
+
+    <div class="stamp-page grid_container">
+        <div class="current-level">
+            <div class="get-coupon">
+                <div class="coupon-amount"></div>
+                <img src="../file/coupon.png" alt="">
+            </div>
+            <div class="level">
+                현재 Level
+                <span class="level-num"></span>
+            </div>
+            <div class="bar-graph-container">
+                <div class="bar-graph"></div>
+            </div>
+            <div class="text" id="achievement"></div>
+            <div class="text sm">
+                2024년 4월 18일에 만료
+            </div>
+        </div>
+        <div class="stamp-container"></div>
+    </div>
+    <script src="../js/stamp.js"></script>
+<%- include('common/footer.ejs') %>
+ 

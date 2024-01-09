@@ -1,0 +1,108 @@
+<%- include('common/header.ejs') %>
+<header class="border_bottom">
+    <img src="../file/header_logo_black.png" alt="">
+</header>
+
+<div class="grid_container profile-page">
+    <div class="profile">
+        <div class="profile-info">
+            <div class="name"><span class="user-name"></span> 님 환영합니다!</div>
+            <!-- <div class="level">Level <span class="level-num"></span></div> -->
+            <div class="logout-btn" onclick="logout()">로그아웃</div>
+        </div>
+        <div class="profile-img-wrapper">
+            <img class="profile-img" alt="">
+        </div>
+    </div>
+    <div class="myinfo">
+        <div class="title">나의정보</div>
+        <div class="myaccount-management item">
+            <div class="item-title">
+                <img src="../file/myaccount_management_icon.png" alt="">
+                <div>내 계정관리</div>
+            </div>
+            <div class="item-rightside">
+                <!-- <img src="../file/left_arrow_gray.png" alt=""> -->
+            </div>
+        </div>
+        <div class="myaccount-management item">
+            <div class="item-title">
+                <img src="../file/myzzim_icon.png" alt="">
+                <div>나의 찜</div>
+            </div>
+            <div class="item-rightside">
+                <span class="number"></span>
+                <!-- <img src="../file/left_arrow_gray.png" alt=""> -->
+            </div>
+        </div>
+            <ul class="favorite-box">
+                        
+            </ul>
+        <div class="myaccount-management item">
+            <div class="item-title">
+                <img src="../file/coupon_box_icon.png" alt="">
+                <div>쿠폰함</div>
+            </div>
+            <div class="item-rightside">
+                <span class="number coupon-amount"></span>
+                <!-- <img src="../file/left_arrow_gray.png" alt=""> -->
+            </div>
+        </div>
+        <div class="coupon-box"></div>
+    </div>
+    <div class="bottom-menu">
+        <div class="item">
+            <img src="../file/announcement_icon.png" alt="">
+            <div>공지사항</div>
+        </div>
+        <div class="item">
+            <img src="../file/invite_friends_icon.png" alt="">
+            <div>친구초대</div>
+        </div>
+        <div class="item">
+            <img src="../file/customer_service_center_icon.png" alt="">
+            <div>고객센터</div>
+        </div>
+    </div>
+</div>
+<script src="../js/profile.js"></script>
+<script>
+     function openModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.style.display = "block";
+        modal.addEventListener('touchend', stopEventPropagation);
+    }
+
+    // 모달 닫기 함수
+    function closeModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.style.display = "none";
+        modal.removeEventListener('touchend', stopEventPropagation);
+    }
+
+    // 모달 외부 클릭 시 모달 닫기
+    window.onclick = function(event) {
+        // 모달 창들의 ID 배열
+        var modalIds = ['modal0', 'modal1', 'modal2', 'modal3'];
+        
+        // 클릭한 요소의 ID가 모달 창 ID 배열에 있는지 확인
+        if (modalIds.includes(event.target.id)) {
+            closeModal(event.target.id);
+        }
+    }
+
+    window.addEventListener('touchend', function(event) {
+        // 모달 창들의 ID 배열
+        var modalIds = ['modal0', 'modal1', 'modal2', 'modal3'];
+
+        // 터치한 요소의 ID가 모달 창 ID 배열에 있는지 확인
+        if (modalIds.includes(event.target.id)) {
+            closeModal(event.target.id);
+        }
+    });
+
+    function stopEventPropagation(event) {
+        event.stopPropagation();
+    }
+</script>
+<%- include('common/footer.ejs') %>
